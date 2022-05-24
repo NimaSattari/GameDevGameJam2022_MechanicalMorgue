@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         rigidbody1 = GetComponent<Rigidbody>();
+        StartCoroutine(Die());
     }
 
     private void LateUpdate()
@@ -27,10 +28,14 @@ public class Bullet : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
-        else
+        else if(other.tag == "Wall")
         {
             Destroy(gameObject);
         }
     }
-
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
+    }
 }

@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ObjectivePanel : MonoBehaviour
 {
     [SerializeField] Objective objectivePrefab;
     [SerializeField] GameObject childpanel;
+    [SerializeField] TextMeshProUGUI titleText;
     public void PopulateObjectives(string type, string objective)
     {
         switch(type)
         {
             case "gb":
+                titleText.text = "Ground Burial";
                 Objective objective1 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective2 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective3 = Instantiate(objectivePrefab, childpanel.transform);
@@ -44,6 +47,7 @@ public class ObjectivePanel : MonoBehaviour
                 }
                 break;
             case "nb":
+                titleText.text = "Natural Burial";
                 Objective objective5 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective6 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective7 = Instantiate(objectivePrefab, childpanel.transform);
@@ -70,6 +74,7 @@ public class ObjectivePanel : MonoBehaviour
                 }
                 break;
             case "c":
+                titleText.text = "Cremation";
                 Objective objective8 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective9 = Instantiate(objectivePrefab, childpanel.transform);
                 objective8.objectiveText.text = "Burn";
@@ -89,6 +94,7 @@ public class ObjectivePanel : MonoBehaviour
                 }
                 break;
             case "a":
+                titleText.text = "Alkaline Hydrolysis";
                 Objective objective10 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective11 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective12 = Instantiate(objectivePrefab, childpanel.transform);
@@ -115,6 +121,7 @@ public class ObjectivePanel : MonoBehaviour
                 }
                 break;
             case "v":
+                titleText.text = "Viking Funeral";
                 Objective objective13 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective14 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective15 = Instantiate(objectivePrefab, childpanel.transform);
@@ -152,6 +159,7 @@ public class ObjectivePanel : MonoBehaviour
 
     public void DeleteObjectives()
     {
+        titleText.text = "Null";
         int childs = childpanel.transform.childCount;
         for (int i = childs - 1; i >= 0; i--)
         {

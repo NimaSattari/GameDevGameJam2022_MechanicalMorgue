@@ -7,6 +7,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject gunModel;
     [SerializeField] Animator animator;
     NavMeshAgent agent;
     Renderer _renderer;
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public bool isPickingUp, pickedUp;
     GameObject pickedUpDeadBody;
 
-    bool gun;
+    [SerializeField] bool gun;
 
     private void Start()
     {
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (isSelected && Input.GetMouseButton(0))
+        if (isSelected && Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
 
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
                 //isSelected = false;
             }
         }
-/*        else if (!isSelected && Input.GetMouseButtonDown(0))
+        else if (!isSelected && Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, playerLayerMask))
             {
@@ -84,14 +85,14 @@ public class PlayerController : MonoBehaviour
                     isSelected = true;
                 }
             }
-        }*/
+        }
 
-        if(gun && isSelected && Input.GetMouseButtonDown(1))
+        if (gun && isSelected && Input.GetMouseButtonDown(1))
         {
             Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
             float rayLength;
-
+            animator.SetTrigger("fire");
             if (groundPlane.Raycast(cameraRay, out rayLength))
             {
                 Vector3 pointToLook = cameraRay.GetPoint(rayLength);
@@ -138,13 +139,15 @@ public class PlayerController : MonoBehaviour
             agent.speed = agent.speed * 1.5f;
             StartCoroutine(PowerDown("speed"));
         }
-        if(power == "health")
+        else if(power == "health")
         {
             UpdateHealth(20f);
         }
-        if(power == "gun")
+        else if(power == "gun")
         {
+            gunModel.SetActive(true);
             gun = true;
+            StartCoroutine(PowerDown("gun"));
         }
     }
     public IEnumerator PowerDown(string power)
@@ -154,8 +157,9 @@ public class PlayerController : MonoBehaviour
         {
             agent.speed = agent.speed / 1.5f;
         }
-        if(power == "gun")
+        else if(power == "gun")
         {
+            gunModel.SetActive(false);
             gun = false;
         }
     }
