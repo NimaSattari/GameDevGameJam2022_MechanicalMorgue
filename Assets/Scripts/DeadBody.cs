@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DeadBody : MonoBehaviour
 {
+    [SerializeField] GameObject[] bodies;
     NavMeshAgent agent;
     [SerializeField] GameObject zombiePrefab;
     [SerializeField] Image timerImage;
@@ -23,6 +24,8 @@ public class DeadBody : MonoBehaviour
     private void Start()
     {
         zombieTimer = initalZombieTimer;
+        int number = Random.Range(0, 6);
+        bodies[number].SetActive(true);
     }
 
     void Update()
@@ -185,6 +188,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (wash && !mass)
@@ -198,6 +206,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (wash && mass && !clot)
@@ -211,6 +224,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (wash && mass && clot && !coff)
@@ -225,6 +243,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                     }
@@ -242,6 +265,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (wash && !mass)
@@ -255,6 +283,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (wash && mass && !clot)
@@ -269,6 +302,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                     }
@@ -286,6 +324,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (burn && !ern)
@@ -300,6 +343,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                     }
@@ -317,6 +365,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (mass && !alka)
@@ -330,6 +383,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (mass && alka && !ern)
@@ -344,6 +402,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                     }
@@ -361,6 +424,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (wash && !mass)
@@ -374,6 +442,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (wash && mass && !clot)
@@ -387,6 +460,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                         else if (wash && mass && clot && !raft)
@@ -401,6 +479,11 @@ public class DeadBody : MonoBehaviour
                             else
                             {
                                 print("wrong");
+                                if (zombieInstant == null)
+                                {
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                     }
@@ -422,19 +505,31 @@ public class DeadBody : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    int whatBody;
     private void ProcessByMachine(Transform machineTransform)
     {
-        GetComponent<MeshRenderer>().enabled = false;
+        whatBody = 0;
         GetComponent<Collider>().enabled = false;
         StartCoroutine(enumerator(machineTransform));
+        foreach (GameObject @object in bodies)
+        {
+            if (@object.activeInHierarchy)
+            {
+                @object.SetActive(false);
+                return;
+            }
+            else
+            {
+                whatBody++;
+            }
+        }
     }
     IEnumerator enumerator(Transform machineTransform)
     {
         yield return new WaitForSeconds(4f);
         transform.position = machineTransform.position + new Vector3(3, 1.5f - machineTransform.transform.position.y, 0);
         //transform.localEulerAngles = new Vector3(0, 0, 0);
-        GetComponent<MeshRenderer>().enabled = true;
+        bodies[whatBody].SetActive(true);
         GetComponent<Collider>().enabled = true;
         timerFather.gameObject.SetActive(true);
         zombieTimer = initalZombieTimer;
