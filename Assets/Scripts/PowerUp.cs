@@ -53,7 +53,7 @@ public class PowerUp : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
         Destroy(gameObject);
     }
 }

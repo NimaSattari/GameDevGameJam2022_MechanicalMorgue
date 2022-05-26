@@ -34,6 +34,7 @@ public class Spawner : MonoBehaviour
                 alreadyEnded = true;
                 winPanel.SetActive(true);
                 CalculateCoins();
+                FindObjectOfType<MusicPlayer>().PlayWin();
                 print("Win");
             }
         }
@@ -45,11 +46,11 @@ public class Spawner : MonoBehaviour
         print("Player" + playerCoins);
         float stars = (playerCoins / allCoins) * 100;
         print("Stars" + stars);
-        if (stars <= 34)
+        if (stars <= 40)
         {
             starss[0].SetActive(true);
         }
-        else if(stars <= 67)
+        else if(stars <= 80)
         {
             starss[0].SetActive(true);
             starss[1].SetActive(true);
@@ -103,9 +104,13 @@ public class Spawner : MonoBehaviour
         if (zombies.Length == 0 && bodies.Count == 0)
         {
             yield return new WaitForSeconds(0.5f);
-            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().health >= 1)
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
             {
-                ender = true;
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().health >= 1)
+                {
+                    ender = true;
+                }
             }
         }
         else

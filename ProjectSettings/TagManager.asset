@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - Door
   - PauseWin
+  - Music
   layers:
   - Default
   - TransparentFX

@@ -218,7 +218,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7825213481877732784}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.4
+  m_Radius: 0.3
   m_Speed: 8
   m_Acceleration: 100
   avoidancePriority: 50
@@ -247,6 +247,7 @@ MonoBehaviour:
   animator: {fileID: 2315490009919073306}
   bullet: {fileID: 5036830162376471766, guid: cfef68fc1fdba9c4db718eaf021b1d42, type: 3}
   healthImage: {fileID: 0}
+  health: 0
   maxHealth: 30
   coinText: {fileID: 0}
   coin: 0
@@ -411,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5417d430067735147a989397e38af100, type: 3}
       propertyPath: m_Name
       value: Pistol_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5417d430067735147a989397e38af100, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5417d430067735147a989397e38af100, type: 3}

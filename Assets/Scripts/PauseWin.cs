@@ -12,10 +12,12 @@ public class PauseWin : MonoBehaviour
     {
         if (pausePanel.activeInHierarchy)
         {
+            Time.timeScale = 1;
             pausePanel.SetActive(false);
         }
         else
         {
+            Time.timeScale = 0;
             pausePanel.SetActive(true);
         }
     }
@@ -32,6 +34,9 @@ public class PauseWin : MonoBehaviour
 
     public void LoseGame()
     {
+        Camera camera = Camera.main;
+        StartCoroutine(camera.GetComponent<CameraShake>().Shake(0.5f, 0.5f));
+        FindObjectOfType<MusicPlayer>().PlayLose();
         losePanel.SetActive(true);
     }
 }

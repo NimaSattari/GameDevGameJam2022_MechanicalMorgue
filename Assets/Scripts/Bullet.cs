@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
     Rigidbody rigidbody1;
+    [SerializeField] ParticleSystem dieEffect;
     private void Start()
     {
         rigidbody1 = GetComponent<Rigidbody>();
@@ -25,8 +26,11 @@ public class Bullet : MonoBehaviour
         }
         else if(other.tag == "Zombie")
         {
+            dieEffect.Play();
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            GetComponent<Collider>().enabled = false;
+            GetComponent<Renderer>().enabled = false;
+            Destroy(gameObject, 2f);
         }
         else if(other.tag == "Wall")
         {

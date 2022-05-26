@@ -20,6 +20,9 @@ public class DeadBody : MonoBehaviour
     GameObject zombieInstant;
 
     [SerializeField] int coinGift;
+    [SerializeField] ParticleSystem[] doneParticles;
+    [SerializeField] CapsuleCollider capsule;
+    [SerializeField] GameObject[] thingsToTurnOff;
 
     private void Start()
     {
@@ -180,6 +183,18 @@ public class DeadBody : MonoBehaviour
                     print("In Machine");
                     transform.parent = null;
                     GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().DeleteObjectives();
+                    if (nothing)
+                    {
+                        stayed = true;
+                        print("wrong");
+                        if (zombieInstant == null)
+                        {
+                            zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                            GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                            finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
+                            Destroy(gameObject);
+                        }
+                    }
                     if (gb)
                     {
                         stayed = true;
@@ -536,6 +551,7 @@ public class DeadBody : MonoBehaviour
                 agent.gameObject.GetComponent<PlayerController>().UpdateCoin(coinGift);
                 GameObject finish = GameObject.FindGameObjectWithTag("Door");
                 finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
+                doneParticles[Random.Range(0, doneParticles.Length)].Play();
                 print("Well Done");
             }
             else
@@ -544,7 +560,12 @@ public class DeadBody : MonoBehaviour
                 finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                 print("You Suck");
             }
-            Destroy(gameObject);
+            capsule.enabled = false;
+            foreach(GameObject @object in thingsToTurnOff)
+            {
+                @object.SetActive(false);
+            }
+            Destroy(gameObject, 2f);
         }
     }
     int whatBody;
@@ -568,7 +589,7 @@ public class DeadBody : MonoBehaviour
     }
     IEnumerator enumerator(Transform machineTransform)
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         transform.position = machineTransform.position + new Vector3(3, 1.5f - machineTransform.transform.position.y, 0);
         //transform.localEulerAngles = new Vector3(0, 0, 0);
         bodies[whatBody].SetActive(true);

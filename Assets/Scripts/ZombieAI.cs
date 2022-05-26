@@ -7,6 +7,9 @@ public class ZombieAI : MonoBehaviour
     GameObject player;
     NavMeshAgent agent;
     [SerializeField] float damage;
+    [SerializeField] GameObject model, mylight;
+    [SerializeField] ParticleSystem dieEffect;
+
 
     void Start()
     {
@@ -16,14 +19,23 @@ public class ZombieAI : MonoBehaviour
 
     void Update()
     {
-        agent.destination = player.transform.position;
+        if(player != null)
+        {
+            agent.destination = player.transform.position;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             other.GetComponent<PlayerController>().UpdateHealth(-damage);
-            Destroy(gameObject);
+            GetComponent<BoxCollider>().enabled = false;
+            model.SetActive(false);
+            mylight.SetActive(false);
+            dieEffect.Play();
+            Camera camera = Camera.main;
+            StartCoroutine(camera.GetComponent<CameraShake>().Shake(0.15f, 0.4f));
+            Destroy(gameObject, 2f);
         }
     }
 

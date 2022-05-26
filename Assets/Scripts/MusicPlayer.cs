@@ -5,7 +5,7 @@ using UnityEngine;
 public class MusicPlayer : MonoBehaviour
 {
     [SerializeField] AudioClip[] Musics;
-
+    [SerializeField] AudioClip win, lose;
     void Awake()
     {
         PlayNextSong();
@@ -28,5 +28,17 @@ public class MusicPlayer : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }
+    public void PlayWin()
+    {
+        CancelInvoke();
+        GetComponent<AudioSource>().PlayOneShot(win);
+        Invoke("PlayNextSong", 4f);
+    }
+    public void PlayLose()
+    {
+        CancelInvoke();
+        GetComponent<AudioSource>().PlayOneShot(lose);
+        Invoke("PlayNextSong", 4f);
     }
 }
