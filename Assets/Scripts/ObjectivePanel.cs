@@ -12,6 +12,11 @@ public class ObjectivePanel : MonoBehaviour
     {
         switch(type)
         {
+            case "nothing":
+                titleText.text = "Processed";
+                Objective objective0 = Instantiate(objectivePrefab, childpanel.transform);
+                objective0.objectiveText.text = "Dump At The End";
+                break;
             case "gb":
                 titleText.text = "Ground Burial";
                 Objective objective1 = Instantiate(objectivePrefab, childpanel.transform);

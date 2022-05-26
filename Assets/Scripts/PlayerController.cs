@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject bullet;
 
     [SerializeField] Image healthImage;
-    float health;
+    public float health;
     [SerializeField] float maxHealth;
 
     [SerializeField] TextMeshProUGUI coinText;
@@ -47,7 +48,11 @@ public class PlayerController : MonoBehaviour
         if (isSelected && Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-
+            if (EventSystem.current.IsPointerOverGameObject())    // is the click on the GUI
+            {
+                // GUI Action
+                return;
+            }
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, bodyLayerMask))
             {
                 print("Go To Dead Body");
@@ -68,7 +73,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, groundLayerMask))
             {
-                print("Go To Position");
+                //print("Go To Position");
                 agent.destination = hit.point;
                 //_renderer.material.color = Color.red;
                 //isSelected = false;
@@ -117,8 +122,9 @@ public class PlayerController : MonoBehaviour
         healthImage.fillAmount = health / maxHealth;
         if (health <= 0)
         {
-            Destroy(gameObject);
             print("Game Over");
+            GameObject.FindGameObjectWithTag("PauseWin").GetComponent<PauseWin>().LoseGame();
+            Destroy(gameObject);
         }
         else if(health > maxHealth)
         {

@@ -11,7 +11,7 @@ public class DeadBody : MonoBehaviour
     [SerializeField] GameObject zombiePrefab;
     [SerializeField] Image timerImage;
     [SerializeField] GameObject timerFather;
-    public bool gb, nb, c, a, v;
+    public bool gb, nb, c, a, v, nothing;
     public bool wash, mass, clot, coff, burn, ern, raft, alka;
     public bool stayed;
     public bool done;
@@ -36,6 +36,8 @@ public class DeadBody : MonoBehaviour
             if (zombieInstant == null)
             {
                 zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                 Destroy(gameObject);
             }
         }
@@ -160,6 +162,10 @@ public class DeadBody : MonoBehaviour
                             GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("v", "raft");
                         }
                     }
+                    if (nothing)
+                    {
+                        GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("nothing", "not");
+                    }
                 }
             }
         }
@@ -191,6 +197,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -209,6 +217,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -227,6 +237,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -246,6 +258,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -268,6 +282,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -286,6 +302,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -305,6 +323,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -327,6 +347,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -346,6 +368,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -368,6 +392,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -386,6 +412,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -405,6 +433,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -427,6 +457,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -445,6 +477,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -463,6 +497,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -482,6 +518,8 @@ public class DeadBody : MonoBehaviour
                                 if (zombieInstant == null)
                                 {
                                     zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                                    finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
                                 }
                             }
@@ -496,10 +534,14 @@ public class DeadBody : MonoBehaviour
             if (done)
             {
                 agent.gameObject.GetComponent<PlayerController>().UpdateCoin(coinGift);
+                GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                 print("Well Done");
             }
             else
             {
+                GameObject finish = GameObject.FindGameObjectWithTag("Door");
+                finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                 print("You Suck");
             }
             Destroy(gameObject);

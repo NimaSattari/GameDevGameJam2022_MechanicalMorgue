@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304bf8c26a582d64bb18ae74299cd6a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: Level
+  gameScene: Level 1
   helpPanel: {fileID: 1623020278}
 --- !u!1 &193171519
 GameObject:
