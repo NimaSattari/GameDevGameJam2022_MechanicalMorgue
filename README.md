@@ -28,5 +28,7 @@ https://icons8.com/
 Audio:
 https://freesound.org/people/omegagroove/sounds/620501/
 https://freesound.org/people/PhonosUPF/sounds/495313/
+https://freesound.org/people/tc630/sounds/98014/
+https://freesound.org/people/stanrams/sounds/323026/
 https://kenney.nl/assets/music-jingles
 
