@@ -12,7 +12,7 @@ public class DeadBody : MonoBehaviour
     [SerializeField] Image timerImage;
     [SerializeField] GameObject timerFather;
     public bool gb, nb, c, a, v, nothing;
-    public bool wash, mass, clot, coff, burn, ern, raft, alka;
+    public bool wash, mass, clot, coff, burn, urn, raft, alka;
     public bool stayed;
     public bool done;
     public float zombieTimer = 0;
@@ -63,6 +63,7 @@ public class DeadBody : MonoBehaviour
                 {
                     print("PickUp");
                     stayed = false;
+                    agent.gameObject.GetComponent<PlayerController>().pickedUpDeadBody = this.gameObject;
                     timerFather.gameObject.SetActive(false);
                     zombieTimer = 100;
                     transform.parent = other.gameObject.transform;
@@ -116,13 +117,13 @@ public class DeadBody : MonoBehaviour
                         {
                             GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("c", "not");
                         }
-                        else if (burn && !ern)
+                        else if (burn && !urn)
                         {
                             GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("c", "burn");
                         }
                         else if (done)
                         {
-                            GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("c", "ern");
+                            GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("c", "urn");
                         }
                     }
                     if (a)
@@ -135,13 +136,13 @@ public class DeadBody : MonoBehaviour
                         {
                             GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("a", "mass");
                         }
-                        else if (mass && alka && !ern)
+                        else if (mass && alka && !urn)
                         {
                             GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("a", "alka");
                         }
                         else if (done)
                         {
-                            GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("a", "ern");
+                            GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().PopulateObjectives("a", "urn");
                         }
                     }
                     if (v)
@@ -371,12 +372,12 @@ public class DeadBody : MonoBehaviour
                                 }
                             }
                         }
-                        else if (burn && !ern)
+                        else if (burn && !urn)
                         {
-                            if (other.GetComponent<Machine>().ern)
+                            if (other.GetComponent<Machine>().urn)
                             {
                                 print("Right");
-                                ern = true;
+                                urn = true;
                                 done = true;
                                 ProcessByMachine(other.transform);
                             }
@@ -436,12 +437,12 @@ public class DeadBody : MonoBehaviour
                                 }
                             }
                         }
-                        else if (mass && alka && !ern)
+                        else if (mass && alka && !urn)
                         {
-                            if (other.GetComponent<Machine>().ern)
+                            if (other.GetComponent<Machine>().urn)
                             {
                                 print("Right");
-                                ern = true;
+                                urn = true;
                                 done = true;
                                 ProcessByMachine(other.transform);
                             }

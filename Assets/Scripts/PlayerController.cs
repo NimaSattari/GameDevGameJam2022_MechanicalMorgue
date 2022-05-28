@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isSelected;
     public bool isPickingUp, pickedUp;
     public GameObject pickedUpDeadBody;
+    public GameObject pickedDeadBody;
 
     [SerializeField] bool gun;
 
@@ -55,8 +56,8 @@ public class PlayerController : MonoBehaviour
             if (!pickedUp && pickedUpDeadBody == null && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, bodyLayerMask))
             {
                 print("Go To Dead Body");
-                pickedUpDeadBody = hit.transform.gameObject;
-                agent.destination = pickedUpDeadBody.transform.position + new Vector3(0, 0, 1);
+                pickedDeadBody = hit.transform.gameObject;
+                agent.destination = pickedDeadBody.transform.position + new Vector3(0, 0, 1);
                 //isSelected = false;
                 isPickingUp = true;
             }

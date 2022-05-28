@@ -6,15 +6,24 @@ public class MusicPlayer : MonoBehaviour
 {
     [SerializeField] AudioClip[] Musics;
     [SerializeField] AudioClip win, lose;
+    AudioSource source;
+
     void Awake()
     {
-        PlayNextSong();
         SetUpSingleton();
     }
+
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+        PlayNextSong();
+    }
+
     void PlayNextSong()
     {
         AudioClip audio = Musics[Random.Range(0, Musics.Length)];
-        GetComponent<AudioSource>().PlayOneShot(audio);
+        source.clip = audio;
+        source.Play();
         Invoke("PlayNextSong", audio.length);
     }
 
@@ -32,12 +41,14 @@ public class MusicPlayer : MonoBehaviour
     public void PlayWin()
     {
         CancelInvoke();
+        source.Stop();
         GetComponent<AudioSource>().PlayOneShot(win);
         Invoke("PlayNextSong", 4f);
     }
     public void PlayLose()
     {
         CancelInvoke();
+        source.Stop();
         GetComponent<AudioSource>().PlayOneShot(lose);
         Invoke("PlayNextSong", 4f);
     }

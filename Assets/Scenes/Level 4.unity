@@ -5641,7 +5641,7 @@ MonoBehaviour:
   clot: 0
   coff: 1
   burn: 0
-  ern: 0
+  urn: 0
   raft: 0
   alka: 0
 --- !u!1001 &442568189
@@ -6173,7 +6173,7 @@ MonoBehaviour:
   clot: 0
   coff: 0
   burn: 0
-  ern: 0
+  urn: 0
   raft: 0
   alka: 0
 --- !u!1 &492358217
@@ -6659,7 +6659,7 @@ GameObject:
   - component: {fileID: 551590264}
   - component: {fileID: 551590269}
   m_Layer: 9
-  m_Name: Ern
+  m_Name: Urn
   m_TagString: Machine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6778,7 +6778,7 @@ MonoBehaviour:
   clot: 0
   coff: 0
   burn: 0
-  ern: 1
+  urn: 1
   raft: 0
   alka: 0
 --- !u!1 &553873684
@@ -10226,7 +10226,7 @@ MonoBehaviour:
   clot: 0
   coff: 0
   burn: 1
-  ern: 0
+  urn: 0
   raft: 0
   alka: 0
 --- !u!1001 &904992714
@@ -10425,7 +10425,7 @@ MonoBehaviour:
   clot: 0
   coff: 0
   burn: 0
-  ern: 0
+  urn: 0
   raft: 1
   alka: 0
 --- !u!1 &906438320
@@ -11591,7 +11591,7 @@ MonoBehaviour:
   clot: 0
   coff: 0
   burn: 0
-  ern: 0
+  urn: 0
   raft: 0
   alka: 1
 --- !u!1001 &1009085058
@@ -11714,7 +11714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ern
+  m_text: Urn
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a51ab3204903e804892cb4ab9ea9586a, type: 2}
   m_sharedMaterial: {fileID: -2920530041421836038, guid: a51ab3204903e804892cb4ab9ea9586a, type: 2}
@@ -14692,7 +14692,7 @@ MonoBehaviour:
   clot: 1
   coff: 0
   burn: 0
-  ern: 0
+  urn: 0
   raft: 0
   alka: 0
 --- !u!1001 &1246760590
@@ -18706,7 +18706,7 @@ MonoBehaviour:
   clot: 0
   coff: 0
   burn: 0
-  ern: 0
+  urn: 0
   raft: 0
   alka: 0
 --- !u!1 &1667569720

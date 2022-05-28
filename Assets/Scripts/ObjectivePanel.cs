@@ -83,7 +83,7 @@ public class ObjectivePanel : MonoBehaviour
                 Objective objective8 = Instantiate(objectivePrefab, childpanel.transform);
                 Objective objective9 = Instantiate(objectivePrefab, childpanel.transform);
                 objective8.objectiveText.text = "Burn";
-                objective9.objectiveText.text = "Ern";
+                objective9.objectiveText.text = "Urn";
                 switch (objective)
                 {
                     case "not":
@@ -92,7 +92,7 @@ public class ObjectivePanel : MonoBehaviour
                     case "burn":
                         objective8.checkImage.gameObject.SetActive(true);
                         break;
-                    case "ern":
+                    case "urn":
                         objective8.checkImage.gameObject.SetActive(true);
                         objective9.checkImage.gameObject.SetActive(true);
                         break;
@@ -105,7 +105,7 @@ public class ObjectivePanel : MonoBehaviour
                 Objective objective12 = Instantiate(objectivePrefab, childpanel.transform);
                 objective10.objectiveText.text = "Massage";
                 objective11.objectiveText.text = "Alkaline Hydrolysis";
-                objective12.objectiveText.text = "Ern";
+                objective12.objectiveText.text = "Urn";
                 switch (objective)
                 {
                     case "not":
@@ -118,7 +118,7 @@ public class ObjectivePanel : MonoBehaviour
                         objective10.checkImage.gameObject.SetActive(true);
                         objective11.checkImage.gameObject.SetActive(true);
                         break;
-                    case "ern":
+                    case "urn":
                         objective10.checkImage.gameObject.SetActive(true);
                         objective11.checkImage.gameObject.SetActive(true);
                         objective12.checkImage.gameObject.SetActive(true);
