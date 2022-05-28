@@ -482,6 +482,7 @@ MonoBehaviour:
   - {fileID: 3452629601326870705}
   - {fileID: 3480337022231507163}
   - {fileID: 4850555098192734309}
+  lightToTurnOff: {fileID: 4850555098192734309}
 --- !u!1001 &50687679632877445
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] bool isSelected;
     public bool isPickingUp, pickedUp;
-    GameObject pickedUpDeadBody;
+    public GameObject pickedUpDeadBody;
 
     [SerializeField] bool gun;
 
@@ -50,15 +50,13 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit;
             if (EventSystem.current.IsPointerOverGameObject())    // is the click on the GUI
             {
-                // GUI Action
                 return;
             }
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, bodyLayerMask))
+            if (!pickedUp && pickedUpDeadBody == null && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, bodyLayerMask))
             {
                 print("Go To Dead Body");
                 pickedUpDeadBody = hit.transform.gameObject;
                 agent.destination = pickedUpDeadBody.transform.position + new Vector3(0, 0, 1);
-                //_renderer.material.color = Color.red;
                 //isSelected = false;
                 isPickingUp = true;
             }
@@ -66,7 +64,6 @@ public class PlayerController : MonoBehaviour
             {
                 print("Move Dead Body To Machine");
                 agent.destination = hit.point;
-                //_renderer.material.color = Color.red;
                 //isSelected = false;
                 isPickingUp = false;
                 pickedUp = false;
@@ -75,7 +72,6 @@ public class PlayerController : MonoBehaviour
             {
                 //print("Go To Position");
                 agent.destination = hit.point;
-                //_renderer.material.color = Color.red;
                 //isSelected = false;
             }
         }
@@ -106,6 +102,8 @@ public class PlayerController : MonoBehaviour
                 transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
             }
             Instantiate(bullet, transform.position + new Vector3(0, 1, 0), transform.localRotation, null);
+            Camera camera = Camera.main;
+            StartCoroutine(camera.GetComponent<CameraShake>().Shake(0.1f, 0.25f));
         }
         UpdateAnimator();
     }

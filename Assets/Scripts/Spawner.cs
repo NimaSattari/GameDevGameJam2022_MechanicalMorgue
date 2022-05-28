@@ -34,7 +34,11 @@ public class Spawner : MonoBehaviour
                 alreadyEnded = true;
                 winPanel.SetActive(true);
                 CalculateCoins();
-                FindObjectOfType<MusicPlayer>().PlayWin();
+                MusicPlayer musicPlayer = FindObjectOfType<MusicPlayer>();
+                if (musicPlayer != null)
+                {
+                    musicPlayer.PlayWin();
+                }
                 print("Win");
             }
         }
@@ -124,7 +128,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject newDeadBody = Instantiate(deadBody[Random.Range(0, deadBody.Length)]);
         bodies.Add(newDeadBody);
-        allCoins += 10;
+        allCoins += newDeadBody.GetComponent<DeadBody>().coinGift;
         Vector3 randomPosition = new Vector3(Random.Range(0f, 3f), 0, 0);
         newDeadBody.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1) + randomPosition;
     }

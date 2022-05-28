@@ -24,6 +24,7 @@ public class PauseWin : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
 
@@ -36,7 +37,11 @@ public class PauseWin : MonoBehaviour
     {
         Camera camera = Camera.main;
         StartCoroutine(camera.GetComponent<CameraShake>().Shake(0.5f, 0.5f));
-        FindObjectOfType<MusicPlayer>().PlayLose();
+        MusicPlayer musicPlayer = FindObjectOfType<MusicPlayer>();
+        if (musicPlayer != null)
+        {
+            musicPlayer.PlayLose();
+        }
         losePanel.SetActive(true);
     }
 }

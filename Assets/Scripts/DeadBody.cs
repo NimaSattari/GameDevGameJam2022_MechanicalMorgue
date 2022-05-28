@@ -19,10 +19,12 @@ public class DeadBody : MonoBehaviour
     public float initalZombieTimer = 10;
     GameObject zombieInstant;
 
-    [SerializeField] int coinGift;
+    public int coinGift;
     [SerializeField] ParticleSystem[] doneParticles;
     [SerializeField] CapsuleCollider capsule;
     [SerializeField] GameObject[] thingsToTurnOff;
+    [SerializeField] GameObject lightToTurnOff;
+    int whatBody;
 
     private void Start()
     {
@@ -178,9 +180,10 @@ public class DeadBody : MonoBehaviour
             zombieTimer = 100;
             if (!agent.gameObject.GetComponent<PlayerController>().isPickingUp && !agent.gameObject.GetComponent<PlayerController>().pickedUp)
             {
-                if (/*agent.isStopped || */agent.remainingDistance <= agent.stoppingDistance)
+                if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     print("In Machine");
+                    agent.gameObject.GetComponent<PlayerController>().pickedUpDeadBody = null;
                     transform.parent = null;
                     GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().DeleteObjectives();
                     if (nothing)
@@ -189,7 +192,7 @@ public class DeadBody : MonoBehaviour
                         print("wrong");
                         if (zombieInstant == null)
                         {
-                            zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                            zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                             GameObject finish = GameObject.FindGameObjectWithTag("Door");
                             finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                             Destroy(gameObject);
@@ -211,7 +214,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -231,7 +234,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -251,7 +254,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -272,7 +275,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -296,7 +299,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -316,7 +319,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -337,7 +340,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -361,7 +364,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -382,7 +385,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -406,7 +409,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -426,7 +429,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -447,7 +450,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -471,7 +474,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -491,7 +494,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -511,7 +514,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -532,7 +535,7 @@ public class DeadBody : MonoBehaviour
                                 print("wrong");
                                 if (zombieInstant == null)
                                 {
-                                    zombieInstant = Instantiate(zombiePrefab, transform.position, transform.localRotation, null);
+                                    zombieInstant = Instantiate(zombiePrefab, transform.position + new Vector3(0, 0, 2), transform.localRotation, null);
                                     GameObject finish = GameObject.FindGameObjectWithTag("Door");
                                     finish.GetComponent<Spawner>().bodies.Remove(finish.GetComponent<Spawner>().bodies[0]);
                                     Destroy(gameObject);
@@ -546,6 +549,7 @@ public class DeadBody : MonoBehaviour
         else if (other.tag == "Finish")
         {
             GameObject.FindGameObjectWithTag("OBJ").GetComponent<ObjectivePanel>().DeleteObjectives();
+            agent.gameObject.GetComponent<PlayerController>().pickedUpDeadBody = null;
             if (done)
             {
                 agent.gameObject.GetComponent<PlayerController>().UpdateCoin(coinGift);
@@ -568,31 +572,37 @@ public class DeadBody : MonoBehaviour
             Destroy(gameObject, 2f);
         }
     }
-    int whatBody;
+
     private void ProcessByMachine(Transform machineTransform)
     {
         whatBody = 0;
+        lightToTurnOff.SetActive(false);
         GetComponent<Collider>().enabled = false;
-        StartCoroutine(enumerator(machineTransform));
+        //StartCoroutine(enumerator(machineTransform));
         foreach (GameObject @object in bodies)
         {
             if (@object.activeInHierarchy)
             {
+                print("was this" + whatBody);
                 @object.SetActive(false);
+                StartCoroutine(enumerator(machineTransform));
                 return;
             }
             else
             {
+                print("Wasn't this" + whatBody);
                 whatBody++;
             }
         }
     }
+
     IEnumerator enumerator(Transform machineTransform)
     {
         yield return new WaitForSeconds(5f);
         transform.position = machineTransform.position + new Vector3(3, 1.5f - machineTransform.transform.position.y, 0);
-        //transform.localEulerAngles = new Vector3(0, 0, 0);
+        print("turn On" + whatBody);
         bodies[whatBody].SetActive(true);
+        lightToTurnOff.SetActive(true);
         GetComponent<Collider>().enabled = true;
         timerFather.gameObject.SetActive(true);
         zombieTimer = initalZombieTimer;
